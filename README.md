@@ -66,3 +66,5 @@ Correção de erros na rota de votação:
 ![Alt text](image-1.png)
 </br> </br>
 ![Alt text](image.png)
+</br> </br>
+![Alt text](image-2.png)
