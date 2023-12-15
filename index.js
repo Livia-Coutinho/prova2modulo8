@@ -1,3 +1,7 @@
+const express = require('express');
+const app = express();
+const port = 3000; 
+
 function animalExists(tableName, id, callback) {           // verifica se o animal existe
   const query = `SELECT COUNT(*) as count FROM ${tableName} WHERE id = ?`;
   db.get(query, [id], (err, row) => {
@@ -55,7 +59,7 @@ app.post('/vote/:animalType/:id', (req, res) => {
 
 // Rota para obter todos os gatos
 app.get('/cats', (req, res) => {
-  animalExists('cats', req.params.id, (exists, error) => {
+  animalExists('cats', null, (exists, error) => {
     if (error) {
       res.status(500).send(error);
     } else if (!exists) {
@@ -74,7 +78,7 @@ app.get('/cats', (req, res) => {
 
 // Rota para obter todos os cachorros
 app.get('/dogs', (req, res) => {
-  animalExists('dogs', req.params.id, (exists, error) => {
+  animalExists('dogs', null, (exists, error) => {
     if (error) {
       res.status(500).send(error);
     } else if (!exists) {
@@ -90,6 +94,7 @@ app.get('/dogs', (req, res) => {
     }
   });
 });
+
 
 
 
